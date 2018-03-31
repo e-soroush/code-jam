@@ -1,0 +1,5 @@
+{
+    "version": "0.1.0",
+    "command": "g++ 2015/Qualification/B.cpp",
+    "isShellCommand": true
+}
