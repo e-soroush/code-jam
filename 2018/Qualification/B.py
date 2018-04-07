@@ -1,48 +1,27 @@
-import sys
 
-states=list(map(chr,range(65,91)))
-def sum_p(p):
-    return sum([p_i[1] for p_i in p])
-def solve(n):
-    p=[[states[i],p_i] for i,p_i in  enumerate(map(int,(input()).split()))]
-    result=''
+def solve():
+    n=int(input())
+    v=list(map(int,input().split()))
     while True:
-        p=sorted(p,key=lambda f:f[1])
-        if sum_p(p[:-1])>0.5!=0 and p[-1][1]/sum_p(p)>0.5:
-            print('p ', p, file=sys.stderr)
-        if p[-1][1]==0:
+        done=True
+        for i in range(n-2):
+            if v[i]>v[i+2]:
+                v[i],v[i+2]=v[i+2],v[i]
+                done=False
+        if done:
             break
-        if p[-1][1]==p[-2][1]:
-            if p[-1][1]==1:
-                if sum_p(p[:-2]) != 1:
-                    p[-1][1]=0
-                    p[-2][1]=0    
-                    result+=' %s%s'%(p[-1][0],p[-2][0])    
-                    continue
-                p[-1][1]=0
-                result+=' %s'%p[-1][0]
-            else:
-                p[-1][1]-=1
-                p[-2][1]-=1
-                result+=' %s%s'%(p[-1][0],p[-2][0])
-        else:
-            if p[-1][1]==1:
-                p[-1][1]=0
-                result+=' %s'%p[-1][0]
+    sorted_v=sorted(v)
+    if v==sorted_v:
+        return 'OK'
+    else:
+        for i in range(n):
+            if v[i]!=sorted_v[i]:
                 break
-            else:
-                p[-1][1]-=2
-                result+=' %s%s'%(p[-1][0],p[-1][0])
-    return result
-                
-
-
-
+        return i
 
 
 
 if __name__=='__main__':
     T=int(input())
     for i in range(T):
-        n=int(input())
-        print("Case #%d: %s"%(i+1,solve(n)))
+        print("Case #{}: {}".format(i+1, solve()))
