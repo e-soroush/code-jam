@@ -8,7 +8,7 @@
             "pythonPath": "${config:python.pythonPath}",
             "program": "${file}",
             "args": [
-                "<","/home/esoroush/Projects/code-jam/2018/Qualification/in"
+                "<","/home/esoroush/Projects/code-jam/2018/Round1-A/in"
             ],
             "cwd": "${PWD}",
             "console": "integratedTerminal",

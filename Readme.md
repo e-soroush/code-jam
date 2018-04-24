@@ -21,7 +21,7 @@ This is an ongoing work and status of this repo would be updated as below. The d
 * Round 1A
     * [x] A. Waffle Choppers
     * [x] B. Bit Party
-    * [-] C. Edgy Baking
+    * [x] C. Edgy Baking
 
 ## Codejam 2017
 
